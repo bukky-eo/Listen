@@ -17,6 +17,8 @@ dependencies:
   flutter_screenutil: ^5.3.1
   flutter_svg: ^1.0.3
   get:
+  lottie:
+  animated_splash_screen:
 
 dev_dependencies:
   flutter_test:
@@ -26,8 +28,8 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,6 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:music_app/screens/account/profile.dart';
+import 'package:music_app/screens/homepage/home.dart';
+import 'package:music_app/screens/intro/splashscreen.dart';
+import 'package:music_app/screens/music/userMusic.dart';
+import 'package:music_app/screens/search/getMusic.dart';
+
+import 'mainpage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,28 +24,15 @@ class Music extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: false,
-      builder: (BuildContext context, child) => const GetMaterialApp(
+      builder: (BuildContext context, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Listen',
-        home: MusicView(),
+        home: const SplashScreen(),
+        theme: ThemeData.dark(),
+        // color: Colors.black,
       ),
     );
   }
 }
 
-class MusicView extends StatefulWidget {
-  const MusicView({Key? key}) : super(key: key);
-
-  @override
-  State<MusicView> createState() => _MusicViewState();
-}
-
-class _MusicViewState extends State<MusicView> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(),
-    );
-  }
-}
-// ()
+//
