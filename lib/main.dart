@@ -2,13 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:music_app/screens/account/profile.dart';
-import 'package:music_app/screens/homepage/home.dart';
-import 'package:music_app/screens/intro/splashscreen.dart';
-import 'package:music_app/screens/music/userMusic.dart';
-import 'package:music_app/screens/search/getMusic.dart';
-
-import 'mainpage.dart';
+import 'package:music_app/screens/intro/info.dart';
+// import 'package:music_app/screens/intro/splashscreen.dart';
+// import 'mainpage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +23,7 @@ class Music extends StatelessWidget {
       builder: (BuildContext context, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Listen',
-        home: const SplashScreen(),
+        home: const IntroPage(),
         theme: ThemeData.dark(),
         // color: Colors.black,
       ),

@@ -30,7 +30,9 @@ class _MusicViewState extends State<MusicView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
@@ -43,8 +45,9 @@ class _MusicViewState extends State<MusicView> {
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.compass), label: ''),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.music_note_2), label: ''),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.person), label: ''),
+              icon: Icon(CupertinoIcons.double_music_note), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.hexagon), label: ''),
         ],
       ),
       body: pages[selectedIndex],

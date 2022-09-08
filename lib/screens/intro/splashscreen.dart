@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:get/get.dart';
-import 'package:music_app/mainpage.dart';
+// import 'package:get/get.dart';
+// import 'package:music_app/mainpage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -30,12 +29,8 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Lottie.asset('assets/animation.json', controller: _controller,
-            onLoaded: (composition) {
-          _controller.duration = composition.duration;
-        }, repeat: true),
-      ),
+      backgroundColor: Colors.black,
+      body: Center(child: Image.asset('assets/welcome.jpg', fit: BoxFit.cover)),
     );
   }
 }
