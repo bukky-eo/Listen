@@ -31,7 +31,7 @@ class _GetMusicState extends State<GetMusic> {
         actions: const [
           CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 35.5,
+            radius: 35,
           )
         ],
       ),
