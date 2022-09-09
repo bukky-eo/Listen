@@ -23,9 +23,9 @@ class _MusicViewState extends State<MusicView> {
 
   final List<Widget> pages = const [
     Home(),
-    Profile(),
     GetMusic(),
     UserMusic(),
+    Profile(),
   ];
   @override
   Widget build(BuildContext context) {

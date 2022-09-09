@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_app/helpers/constants.dart';
+import 'package:music_app/helpers/widgets.dart';
 import 'package:music_app/screens/homepage/components/artist_api.dart';
 import 'package:music_app/screens/homepage/components/musician_body.dart';
 
@@ -13,16 +14,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    getArtistData();
+    super.initState();
+  }
+
   Random random = Random();
   late final _randomOne = random.nextInt(200);
   void getArtistData() async {
     ArtistApi artistApis = ArtistApi();
     var artistData = await artistApis.fetchArtistName(_randomOne);
-    setState(() {
-      Get.to(() => Musicians(
-            artistScreen: artistData,
-          ));
-    });
+    Get.to(() => Musicians(
+          artistScreen: artistData,
+        ));
   }
 
   @override
@@ -59,15 +64,19 @@ class _HomeState extends State<Home> {
                   style: kSmallClassText,
                 ),
                 const SizedBox(height: 10),
-                SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Musicians(),
-                      ],
-                    )),
-                Row(),
-                Row(),
+                // SingleChildScrollView(
+                //     scrollDirection: Axis.horizontal,
+                //     child: Row(
+                //       children: [
+                //         Musicians(),
+                //       ],
+                //     )),
+                const SeeAll(
+                  text: 'Recently Played',
+                ),
+                const SizedBox(height: 10),
+
+                const SeeAll(text: 'Top Daily Playlist')
               ],
             ),
           ),

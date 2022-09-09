@@ -15,3 +15,7 @@ var kSmallClassText = TextStyle(
   fontSize: 22.sp,
   color: Colors.white,
 );
+var kAppBarText = TextStyle(
+  fontSize: 23.sp,
+  color: Colors.white,
+);

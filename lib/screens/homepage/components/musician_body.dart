@@ -24,7 +24,7 @@ class _MusiciansState extends State<Musicians> {
     if (artistData == null) {
       artistName = null;
       artistPicture = '';
-      return;
+      return update(artistData);
     }
     artistName = artistData['name'];
     artistPicture = artistData['picture'];
@@ -33,7 +33,7 @@ class _MusiciansState extends State<Musicians> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 15,
+        itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
           return Column(
             children: [
@@ -42,7 +42,10 @@ class _MusiciansState extends State<Musicians> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                 ),
-                child: Image.network('$artistPicture'),
+                child: Image.network(
+                  '$artistPicture',
+                  fit: BoxFit.contain,
+                ),
               ),
               Text(
                 '$artistName',

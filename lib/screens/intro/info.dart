@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_app/helpers/constants.dart';
 import 'package:music_app/mainpage.dart';
+import 'package:music_app/screens/search/getMusic.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({Key? key}) : super(key: key);
