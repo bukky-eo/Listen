@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/helpers/constants.dart';
 import 'package:music_app/screens/homepage/components/artist_api.dart';
+import 'dart:math';
 
 class Musicians extends StatefulWidget {
   final artistScreen;
@@ -26,33 +28,43 @@ class _MusiciansState extends State<Musicians> {
       artistPicture = '';
       return update(artistData);
     }
-    artistName = artistData['name'];
-    artistPicture = artistData['picture'];
+    artistName = artistData['name'] ?? 0;
+    print('artist = $artistName');
+    artistPicture = artistData['picture'] ?? '';
+    // print(artistPicture);
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 5,
-        itemBuilder: (BuildContext context, int index) {
-          return Column(
-            children: [
-              Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-                child: Image.network(
-                  '$artistPicture',
-                  fit: BoxFit.contain,
-                ),
+    return SizedBox(
+      height: 100,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 15,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.network(
+                      artistPicture == null ? '' : '$artistPicture',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  Text(
+                    '$artistName',
+                    style: kSmallText,
+                  )
+                ],
               ),
-              Text(
-                '$artistName',
-                style: kSmallText,
-              )
-            ],
-          );
-        });
+            );
+          }),
+    );
   }
 }

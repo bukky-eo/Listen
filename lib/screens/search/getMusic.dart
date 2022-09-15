@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:music_app/helpers/constants.dart';
 import 'package:music_app/helpers/playlist_info.dart';
 import 'package:music_app/helpers/widgets.dart';
@@ -13,7 +14,6 @@ class GetMusic extends StatefulWidget {
 }
 
 class _GetMusicState extends State<GetMusic> {
-  final TextEditingController _editingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,25 +44,6 @@ class _GetMusicState extends State<GetMusic> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 5),
-              TextField(
-                  controller: _editingController,
-                  decoration: InputDecoration(
-                      labelText: 'Search',
-                      labelStyle: const TextStyle(color: Colors.grey),
-                      prefixIcon: const Icon(Icons.search),
-                      border: const OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(15.0))),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(color: Colors.black),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(
-                          color: Colors.white,
-                        ),
-                      ))),
               const SizedBox(height: 10),
               Text(
                 'Perfect for you ',
@@ -76,7 +57,7 @@ class _GetMusicState extends State<GetMusic> {
                         .map((singleHits) => Scrolls(hits: singleHits))
                         .toList()),
               ),
-              const SizedBox(height: 15),
+              SizedBox(height: 20.h),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(children: [

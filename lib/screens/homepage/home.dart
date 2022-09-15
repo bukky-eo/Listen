@@ -21,22 +21,19 @@ class _HomeState extends State<Home> {
   }
 
   Random random = Random();
-  late final _randomOne = random.nextInt(200);
+  late final _randomOne = random.nextInt(10);
   void getArtistData() async {
     ArtistApi artistApis = ArtistApi();
     var artistData = await artistApis.fetchArtistName(_randomOne);
-    Get.to(() => Musicians(
-          artistScreen: artistData,
-        ));
+    Musicians(artistScreen: artistData);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Padding(
+      body: ListView(children: [
+        Padding(
           padding: const EdgeInsets.all(15),
           child: SafeArea(
             child: Column(
@@ -64,24 +61,20 @@ class _HomeState extends State<Home> {
                   style: kSmallClassText,
                 ),
                 const SizedBox(height: 10),
-                // SingleChildScrollView(
-                //     scrollDirection: Axis.horizontal,
-                //     child: Row(
-                //       children: [
-                //         Musicians(),
-                //       ],
-                //     )),
+                const SizedBox(
+                  height: 100,
+                  child: Musicians(),
+                ),
                 const SeeAll(
                   text: 'Recently Played',
                 ),
                 const SizedBox(height: 10),
-
                 const SeeAll(text: 'Top Daily Playlist')
               ],
             ),
           ),
         ),
-      ),
+      ]),
     );
   }
 }

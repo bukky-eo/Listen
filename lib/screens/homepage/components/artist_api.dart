@@ -8,10 +8,11 @@ class NetworkHelper {
   final Uri url;
   NetworkHelper(this.url);
 
-  Future getData() async {
+  getData() async {
     http.Response response = await http.get(url);
     if (response.statusCode == 200) {
-      String data = response.body;
+      var data = response.body;
+      print('data = $data');
       return jsonDecode(data);
     } else {
       print(response.statusCode);
@@ -25,5 +26,11 @@ class ArtistApi {
         NetworkHelper(Uri.parse('$artistAPIURL/$artist'));
     var artistData = await networkHelper.getData();
     return artistData;
+  }
+
+  Future<List> getArtistData() async {
+    NetworkHelper networkHelper = NetworkHelper(Uri.parse(''));
+    var searches = await networkHelper.getData();
+    return searches;
   }
 }
